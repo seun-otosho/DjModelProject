@@ -1,0 +1,1 @@
+from model_pro.settings.base import *
