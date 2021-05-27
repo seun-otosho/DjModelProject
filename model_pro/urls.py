@@ -13,9 +13,30 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+# try:
+#     if settings.RA_ERP:
+#         from ra.admin.admin import ra_admin_site
+#         urlpatterns += [
+#             path('erp', ra_admin_site.urls),
+#         ]
+# except:
+#     pass
+
+try:
+    if settings.PONIES:
+        from apps.ponies import urls as ponies_urls
+        urlpatterns += [
+            # other urls
+            path("unicorn/", include("django_unicorn.urls")),
+            path("", include(ponies_urls)),
+        ]
+except:
+    pass
