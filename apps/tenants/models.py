@@ -9,7 +9,7 @@ class TenantManager(models.Manager):
         qs = super(TenantManager, self).filter(parent=None)
         return qs
 
-    def filter_by_instance(self, instance):
+    def filter_by_tenant(self, instance):
         content_type = ContentType.objects.get_for_model(instance.__class__)
         obj_id = instance.id
         qs = super(TenantManager, self).filter(content_type=content_type, object_id=obj_id).filter(parent=None)
@@ -28,6 +28,9 @@ class Tenant(models.Model):
 
     def __str__(self):
         return str(f"Tenant <{self.name}>")
+
+    class Meta:
+        db_table = "tenants"
 
     def get_absolute_url(self):
         return reverse("tenants:detail", kwargs={"id": self.id})

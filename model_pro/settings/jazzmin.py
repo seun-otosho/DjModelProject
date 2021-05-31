@@ -3,6 +3,9 @@ from model_pro.settings import JAZZMIN_SETTINGS, JAZZMIN_UI_TWEAKS
 JAZZMIN_SETTINGS.update({
     'navigation_expanded': False,
     "changeform_format": "single",
+
+
+    "related_modal_active": True
 })
 
 JAZZMIN_UI_TWEAKS.update({

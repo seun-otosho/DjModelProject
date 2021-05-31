@@ -4,9 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
 django-jazzmin = "*"
 django-unicorn = "*"
+djangorestframework = "*"
+django-storages = "*"
+boto3 = "*"
+python-dotenv = "*"
+pytz = "*"
+simplejson = "*"
+unicodecsv = "*"
+argparse = "*"
+Django = "*"
 
 [dev-packages]
 

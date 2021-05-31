@@ -1,0 +1,9 @@
+Django
+djangorestframework
+django-storages
+boto3
+python-dotenv
+pytz
+simplejson
+unicodecsv
+argparse
