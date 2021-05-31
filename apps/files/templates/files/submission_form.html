@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'files_submission_list' %}">
+    submission Listing
+    </a>
+</p>
+    
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.errors}}
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="file_name">file_name: </label>
+  <input class="form-control col-sm-10" id="file_name" type="text" name="file_name" value="{{ object.file_name }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="last_updated">last_updated: </label>
+  <input class="form-control col-sm-10" id="last_updated" type="datetime-local" name="last_updated" value="{{ object.last_updated }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="file">file: </label>
+  <input class="form-control col-sm-10" id="file" type="file" name="file" value="{{ object.file }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="object_id">object_id: </label>
+  <input class="form-control col-sm-10" id="object_id" type="text" name="object_id" value="{{ object.object_id }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="created">created: </label>
+  <input class="form-control col-sm-10" id="created" type="datetime-local" name="created" value="{{ object.created }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="data_object">data_object: </label>
+  <input class="form-control col-sm-10" id="data_object" type="text" name="data_object" value="{{ object.data_object }}">
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary">
+</form>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'files_submission_list' %}">
+    submission Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>file_name</td><td>{{ object.file_name }}</td></tr>
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+    <tr><td>file</td><td>{{ object.file }}</td></tr>
+    <tr><td>object_id</td><td>{{ object.object_id }}</td></tr>
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>data_object</td><td>{{ object.data_object }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}

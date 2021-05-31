@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'addresses_StreetAddress_list' %}">
+    StreetAddress Listing
+    </a>
+</p>
+    
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form.errors}}
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="street_address">street_address: </label>
+  <input class="form-control col-sm-10" id="street_address" type="text" name="street_address" value="{{ object.street_address }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="state">state: </label>
+  <input class="form-control col-sm-10" id="state" type="text" name="state" value="{{ object.state }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="country">country: </label>
+  <input class="form-control col-sm-10" id="country" type="text" name="country" value="{{ object.country }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="area">area: </label>
+  <input class="form-control col-sm-10" id="area" type="text" name="area" value="{{ object.area }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="last_updated">last_updated: </label>
+  <input class="form-control col-sm-10" id="last_updated" type="datetime-local" name="last_updated" value="{{ object.last_updated }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="object_id">object_id: </label>
+  <input class="form-control col-sm-10" id="object_id" type="text" name="object_id" value="{{ object.object_id }}">
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="created">created: </label>
+  <input class="form-control col-sm-10" id="created" type="datetime-local" name="created" value="{{ object.created }}" disabled>
+  </div>
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" for="address_owner">address_owner: </label>
+  <input class="form-control col-sm-10" id="address_owner" type="text" name="address_owner" value="{{ object.address_owner }}">
+  </div>
+  <input type="submit" value="Save" class="btn btn-primary">
+</form>
+
+{% endblock %}

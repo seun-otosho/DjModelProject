@@ -1,0 +1,14 @@
+{% extends 'admin/change_list.html' %}
+
+
+{% block object-tools %}
+{#    <div class="col-12 col-sm-4">#}
+    <a class="btn btn-outline-primary float-right" href="upload-institutions/">
+        <i class="fas fa-cloud-upload-alt"></i>
+        Upload Institutions
+    </a>
+{#    </div>#}
+    {{ block.super }}
+
+
+{% endblock %}

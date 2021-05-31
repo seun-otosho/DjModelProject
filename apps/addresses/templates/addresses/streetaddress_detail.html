@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    
+<p>
+    <a class="btn btn-light" href="{% url 'addresses_StreetAddress_list' %}">
+    StreetAddress Listing
+    </a>
+</p>
+    
+<table class="table">
+    <tr><td>street_address</td><td>{{ object.street_address }}</td></tr>
+    <tr><td>state</td><td>{{ object.state }}</td></tr>
+    <tr><td>country</td><td>{{ object.country }}</td></tr>
+    <tr><td>area</td><td>{{ object.area }}</td></tr>
+    <tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+    <tr><td>object_id</td><td>{{ object.object_id }}</td></tr>
+    <tr><td>created</td><td>{{ object.created }}</td></tr>
+    <tr><td>address_owner</td><td>{{ object.address_owner }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit</a>
+
+{% endblock %}
